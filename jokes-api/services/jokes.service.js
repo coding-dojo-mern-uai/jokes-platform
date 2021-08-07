@@ -17,7 +17,7 @@ module.exports = {
     return newJoke.save()
   },
   // query, udpate, options
-  updateOneJoke: (_id, joke) => Joke.findOneAndUpdate({ _id }, joke, { new: true }),
+  updateOneJoke: (_id, joke) => Joke.findOneAndUpdate({ _id }, joke, { new: true, runValidators: true }),
   deleteOneJoke: (_id) => {
     return Joke.deleteOne({ _id })
   }

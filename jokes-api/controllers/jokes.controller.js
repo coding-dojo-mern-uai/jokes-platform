@@ -22,8 +22,12 @@ module.exports = {
     }
   },
   updateOneJoke: async ({ params: { _id }, body }, res) => {
-    const joke = await jokesService.updateOneJoke(_id, body)
-    res.send(joke)
+    try {
+      const joke = await jokesService.updateOneJoke(_id, body)
+      res.send(joke)
+    } catch (error) {
+      res.status(400).json(error)
+    }
   },
   deleteOneJoke: async ({ params: { _id } }, res) => {
     const { deletedCount } = await jokesService.deleteOneJoke(_id)
