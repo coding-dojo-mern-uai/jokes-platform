@@ -4,9 +4,14 @@ import JokeCard from '../components/JokeCard'
 import useQuery from '../hooks/useQuery'
 import useMutation from '../hooks/useMutation'
 
+import useAuth from '../hooks/useAuth'
+
 const Jokes = () => {
   const [response, isLoading, refetchQuery] = useQuery({ path: '/jokes' })
   const deleteJoke = useMutation({ path: '/jokes/delete', method: 'delete' })
+  // const { isLoggedIn, authToken } = useAuth()
+
+  // console.log(isLoggedIn, authToken)
 
   const onClickHandler = async (_id) => {
     try {

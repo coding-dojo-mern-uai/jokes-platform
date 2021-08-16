@@ -1,17 +1,22 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
+
+import { BrowserRouter } from 'react-router-dom'
+import { ThemeProvider } from '@material-ui/core/styles'
+
 import './index.css'
 import App from './App'
 import reportWebVitals from './reportWebVitals'
 
-import { BrowserRouter } from 'react-router-dom'
-import { ThemeProvider } from '@material-ui/core/styles'
+import { AuthProvider } from './contexts/auth'
 
 ReactDOM.render(
   <React.StrictMode>
     <BrowserRouter>
       <ThemeProvider>
-        <App />
+        <AuthProvider>
+          <App />
+        </AuthProvider>
       </ThemeProvider>
     </BrowserRouter>
   </React.StrictMode>,
